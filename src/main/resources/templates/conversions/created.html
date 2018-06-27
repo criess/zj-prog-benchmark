@@ -4,20 +4,30 @@
     <title>Results page</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
-<body>
+<body style="text-align:center;">
     <table>
         <thead>
             <tr>
-                <td th:text="source-devise"/>
-                <td th:text="target-devise"/>
+                <td th:text="SourceCurrency"/>
+                <td th:text="TargetCurrency"/>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td th:text="source-amount"/>
-                <td th:text="target-amount"/>
+                <td th:text="${conversionModel.getSourceCurrency()}"/>
+                <td th:text="${conversionModel.getTargetCurrency()}"/>
+            </tr>
+            <tr>
+                <td th:text="${conversionModel.getSourceAmount()}"/>
+                <td th:text="${conversionModel.getConversionFromAPI()}"/>
             </tr>
         </tbody>
     </table>
+    <a href="/">New Conversion</a>
+    <style>
+        tr td {
+            padding: 8px 20px;
+        }
+    </style>
 </body>
 </html>

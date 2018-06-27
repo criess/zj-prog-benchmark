@@ -4,11 +4,38 @@
     <title>Form page</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
-<body>
-    <form method="POST" action="/created">
-      <label for="source-currency">Source Currency</label>
-      <input name="source-currency" type="text"/>
-      <label for="target-currency">Target Currency</label>
-      <input name="target-currency" type="text"/>
+<body style="text-align:center;">
+    <form method="POST" action="/created" th:object="${conversionModel}">
+        <label for="sourceCurrency">Source Currency</label>
+        <select name="sourceCurrency">
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+            <option value="CHF">CHF</option>
+            <option value="USD">USD</option>
+        </select>
+        <div style="color:red;" th:if="${#fields.hasErrors('sourceCurrency')}" th:errors="*{sourceCurrency}"/>
+        <hr>
+        <label for="targetCurrency">Target Currency</label>
+        <select name="targetCurrency">
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+            <option value="CHF">CHF</option>
+            <option value="USD">USD</option>
+        </select>
+        <div style="color:red;" th:if="${#fields.hasErrors('targetCurrency')}" th:errors="*{targetCurrency}"/>
+        <hr>
+        <label for="sourceAmount">Source Amount</label>
+        <input name="sourceAmount" type="text"/>
+        <div style="color:red;" th:if="${#fields.hasErrors('sourceAmount')}" th:errors="*{sourceAmount}"/>
+        <hr>
+        <input type="submit" value="Send Request">
+    </form>
+    <style>
+        input, label {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
 </body>
 </html>
