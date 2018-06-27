@@ -10,10 +10,10 @@
 
 * you need maven and java installed (see Environment)
 ```
-git clone
-cd
+git clone https://github.com/criess/zj-prog-benchmark.git
+cd zj-prog-benchmark
 mvn package
-java -jar
+java -jar target/zj-prog-benchmark-0.0.1.jar
 ```
 
 Now you may navigate to http://localhost:8080 inside a browser.
